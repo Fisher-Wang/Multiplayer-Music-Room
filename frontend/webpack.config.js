@@ -27,6 +27,7 @@ module.exports = {
     new webpack.DefinePlugin({
       "process.env": {
         // This has effect on the react lib size
+        // ref: https://stackoverflow.com/questions/66772358/webpack-warning-warning-in-defineplugin-conflicting-values-for-process-env-no
         'process.env.NODE_ENV' : JSON.stringify('production')
       },
     }),
