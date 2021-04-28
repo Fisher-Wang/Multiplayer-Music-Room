@@ -7,8 +7,9 @@ export default class App extends Component {
     }
 
     render() {
-        return (<h1>Testing React</h1>); // this will replace app div in index.html
+        return <h1>Testing React Code</h1>; 
     }
 }
 
 const appDiv = document.getElementById("app");
+render(<App />, appDiv);
