@@ -32,9 +32,9 @@ class CreateRoomView(APIView):
                 room.save(update_fields=['guest_can_pause', 'votes_to_skip'])
                 return Response(RoomSerializer(room).data, status=status.HTTP_200_OK)
             else:
-                room = Room(host=host, guest_can_pause=guest_can_pause, 
+                room = Room(host=host, guest_can_pause=guest_can_pause,
                             votes_to_skip=votes_to_skip)
                 room.save()
                 return Response(RoomSerializer(room).data, status=status.HTTP_201_CREATED)
-            
+
         return Response({'Bad Request': 'Invalid data...'}, status=status.HTTP_400_BAD_REQUEST)
