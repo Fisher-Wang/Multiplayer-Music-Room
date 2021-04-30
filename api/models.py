@@ -13,11 +13,15 @@ def generate_unique_code():
         code = ''.join(random.choices(string.ascii_uppercase, k=length))
         if Room.objects.filter(code=code):
             break
+
+    return code
     
 
 class Room(models.Model):
     # unique=True: field value must be unique among all objects
-    code = models.CharField(max_length=8, default="", unique=True)
+    code = models.CharField(max_length=8, 
+                            default=generate_unique_code, 
+                            unique=True)
     host = models.CharField(max_length=50, unique=True)
     # null=False: must pass a value 
     guest_can_pause = models.BooleanField(null=False, default=False)
